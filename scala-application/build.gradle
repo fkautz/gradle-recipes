@@ -1,0 +1,14 @@
+apply plugin: 'scala'
+
+// add application plugin
+apply plugin: 'application'
+
+// add mainClassName
+mainClassName = 'com.example.HelloApplication'
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile 'org.scala-lang:scala-library:2.11.1'
+}
