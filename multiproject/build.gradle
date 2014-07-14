@@ -1,0 +1,31 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'com.example.application.Application'
+
+ext.scalaVersion = '2.11.1'
+
+ext.commonsMathVersion = '3.3' // imported in math subproject
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+  compile project(':recommender')
+  compile project(':math')
+}
+
+subprojects {
+  apply plugin: 'scala'
+  dependencies {
+    compile group: 'org.scala-lang', name: 'scala-library', version: scalaVersion
+  }
+  repositories {
+      mavenCentral()
+  }
+}
+
+allprojects {
+  // works just like subprojects, except parent project is included
+}
